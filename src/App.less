@@ -1,3 +1,21 @@
-.p {
-  color: yellow;
+.container {
+  height: 100vh;
+  overflow: hidden;
+  .router-container {
+    float: left;
+    width: 200px;
+    height: 100%;
+    background: #000;
+    padding-top: 20px;
+    .nav {
+      display: block;
+      padding: 10px 0;
+      color: #fff;
+      text-indent: 30px;
+    }
+  }
+  .content-container {
+    width: calc(100% - 200px);
+    float: left;
+  }
 }

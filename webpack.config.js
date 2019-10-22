@@ -8,8 +8,12 @@ module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production'
   return {
     entry: ['@babel/polyfill', path.join(__dirname, './src/index.js')],
+    output: {
+      publicPath: '/'
+    },
     devServer: {
-      port: 3001 //端口号
+      port: 3001, //端口号
+      historyApiFallback: true
     },
     module: {
       rules: [
@@ -24,12 +28,6 @@ module.exports = (env, argv) => {
             }
           ]
         },
-        // {
-        //   test: /\.js$/,
-        //   exclude: /node_modules/,
-        //   loader: 'babel-loader',
-        //   options: {}
-        // },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
@@ -46,14 +44,6 @@ module.exports = (env, argv) => {
             'less-loader'
           ]
         },
-        // {
-        //   test: /\.css$/,
-        //   use: [
-        //     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        //     'css-loader',
-        //     'postcss-loader'
-        //   ]
-        // },
         {
           test: /\.(png|jpg|gif)$/,
           use: [
